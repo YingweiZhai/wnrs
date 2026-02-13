@@ -15,17 +15,20 @@ jobs:
       - name: Setup Node 🟢
         uses: actions/setup-node@v4
         with:
-          node-version: 18 # Using a stable older version for compatibility
+          node-version: 18
 
       - name: Install and Build 🔧
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider"
+          CI: false
         run: |
           npm install --legacy-peer-deps
-          export NODE_OPTIONS=--openssl-legacy-provider
-          CI=false npm run build
-          ls -la # This line helps us see what folders were actually created
+          npm run build
+          touch out/.nojekyll 
+          # The line above prevents GitHub from ignoring files starting with underscores
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build # This matches the default React build output
+          folder: out # Next.js static export goes here
           branch: gh-pages
