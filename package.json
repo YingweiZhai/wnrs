@@ -1,6 +1,7 @@
 {
   "name": "wnrs-v2",
   "private": true,
+  "homepage": "https://yingweizhai.github.io/wnrs/"
   "scripts": {
     "dev": "next dev",
     "build": "next build",
