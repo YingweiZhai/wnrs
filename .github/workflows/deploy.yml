@@ -20,11 +20,12 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install --legacy-peer-deps
-          CI=false npm run build 
-        # CI=false tells GitHub "Don't stop the build if there are minor code warnings"
+          export NODE_OPTIONS=--openssl-legacy-provider
+          CI=false npm run build
+          ls -la # This line helps us see what folders were actually created
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: build # This matches the default React build output
           branch: gh-pages
