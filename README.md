@@ -1,10 +1,4 @@
-# We're Not Really Strangers Online v2
-
-Play WNRS online at [wnrs.jonathanl.dev](https://wnrs.jonathanl.dev). No ads. No profits. No downloads.
-
-### Version 2
-
-Revamped! Now support names, themes, and deck synchronization (seeded rng).
+# We're Not Really Strangers Online
 
 ### Source
 
